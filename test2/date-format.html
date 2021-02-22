@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CrossKnowledge - Code challenge</title>
+</head>
+
+<body>
+    <script>
+        // This will create elements for testing, don't change this code
+        (() => {
+            const MS_PER_MINUTE = 60000
+            const NOW = new Date()
+            let minutes = [0, 1, 30, 60, 6 * 60, 23 * 60, 24 * 60]
+            let dates = []
+
+            minutes.forEach((i) => dates.push(new Date(NOW - i * MS_PER_MINUTE)))
+
+            dates.forEach((item) => {
+                let el = document.createElement("div")
+                el.innerHTML = "Started "
+
+                let dt = document.createElement('span')
+                dt.className = 'js-date-format'
+                dt.innerHTML = formatDate(item)
+                el.appendChild(dt)
+                document.body.appendChild(el)
+            })
+        })();
+
+        function formatDate(date) {
+            // getting actual time (consider using server time instead of client time)
+            const now = new Date()
+
+            // calculating an independent sum of seconds, minutes, and hours ago between actual time and parameter time
+            const secondsAgo = Math.floor((now - date) / 1000)
+            const hoursAgo = Math.floor(secondsAgo / 3600)
+            const minutesAgo = Math.floor(secondsAgo / 60)
+
+            //if it's more than 24 hours return ISO DATE
+            if (hoursAgo >= 24) {
+                return date.toISOString()
+            }
+
+            //if it's more than 1 hours return hours ago
+            if (hoursAgo >= 1) {
+                return `${hoursAgo} hour${hoursAgo > 1? 's' : ''} ago`
+            }
+
+            //if it's more than 1 minutes return minutes ago
+            if (minutesAgo >= 1) {
+                return `${minutesAgo} minute${minutesAgo > 1? 's' : ''} ago`
+            }
+
+            //if there are no hours or minutes ago, just return seconds
+            return `${secondsAgo} second${secondsAgo > 1? 's' : ''} ago`
+        }
+    </script>
+</body>
+
+</html>
