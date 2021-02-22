@@ -1,7 +1,7 @@
 # JBER Projects Application Test
 
 welcome to the JBER Projects Application Test
-It is composed of 3 exercise to probe PHP, redis, javascript, HTML and CSS
+It is composed of 3 exercises to probe PHP, redis, javascript, HTML and CSS
 
 ## snapshots
 
