@@ -25,11 +25,11 @@ Javascript test
 
 Desktop view
 
-![Desktop view](docs/snapshot3.jpg)
+![Desktop view](docs/snapshot3.png)
 
 Mobile view
 
-![Mobile view](docs/snapshot3b.jpg)
+![Mobile view](docs/snapshot3b.png)
 
 ## Additional notes
 To get the first test running, you need to install and configure redis server
