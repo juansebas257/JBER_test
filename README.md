@@ -7,17 +7,21 @@ It is composed of 3 exercise to probe PHP, redis, javascript, HTML and CSS
 
 ### Test 1 (REDIS, PHP)
 
+<<Reading direct>>
 ![Reading direct](docs/snapshot1.png)
 
+<<Reading cached>>
 ![Reading cached](docs/snapshot1b.png)
 
 ### Test 2 (Javascript)
-
+<<Javascript test>>
 ![Javascript test](docs/snapshot2.png)
 
 ### Test 3 (HTML, CSS)
+<<Desktop view>>
 ![Desktop view](docs/snapshot3.jpg)
 
+<<Mobile view>>
 ![Mobile view](docs/snapshot3b.jpg)
 
 ## Additional notes
