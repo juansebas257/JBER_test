@@ -23,7 +23,7 @@
 
                 let dt = document.createElement('span')
                 dt.className = 'js-date-format'
-                dt.innerHTML = formatDate(item)
+                dt.innerHTML = item.toISOString()
                 el.appendChild(dt)
                 document.body.appendChild(el)
             })
@@ -31,31 +31,39 @@
 
         function formatDate(date) {
             // getting actual time (consider using server time instead of client time)
-            const now = new Date()
+            const now = new Date();
 
             // calculating an independent sum of seconds, minutes, and hours ago between actual time and parameter time
-            const secondsAgo = Math.floor((now - date) / 1000)
-            const hoursAgo = Math.floor(secondsAgo / 3600)
-            const minutesAgo = Math.floor(secondsAgo / 60)
+            const secondsAgo = Math.floor((now - date) / 1000);
+            const hoursAgo = Math.floor(secondsAgo / 3600);
+            const minutesAgo = Math.floor(secondsAgo / 60);
 
             //if it's more than 24 hours return ISO DATE
-            if (hoursAgo >= 24) {
-                return date.toISOString()
-            }
+            if (hoursAgo >= 24) return date.toISOString();
 
             //if it's more than 1 hours return hours ago
-            if (hoursAgo >= 1) {
-                return `${hoursAgo} hour${hoursAgo > 1? 's' : ''} ago`
-            }
+            if (hoursAgo >= 1) return `${hoursAgo} hour${hoursAgo > 1? 's' : ''} ago`;
 
             //if it's more than 1 minutes return minutes ago
-            if (minutesAgo >= 1) {
-                return `${minutesAgo} minute${minutesAgo > 1? 's' : ''} ago`
-            }
+            if (minutesAgo >= 1) return `${minutesAgo} minute${minutesAgo > 1? 's' : ''} ago`;
 
             //if there are no hours or minutes ago, just return seconds
-            return `${secondsAgo} second${secondsAgo > 1? 's' : ''} ago`
+            return `${secondsAgo} second${secondsAgo > 1? 's' : ''} ago`;
         }
+
+        // getting all elements of class js-date-format
+        const dts = document.getElementsByClassName('js-date-format');
+
+        // formatting date of elements every second
+        Array.from(dts).forEach(dt => {
+            const date = new Date(dt.innerHTML);
+            dt.innerHTML = formatDate(date); //to format in the first second
+
+            // to format every second
+            setInterval(() => {
+                dt.innerHTML = formatDate(date);
+            }, 1000);
+        });
     </script>
 </body>
 

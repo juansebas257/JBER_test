@@ -23,13 +23,9 @@ Javascript test
 
 ### Test 3 (HTML, CSS)
 
-Desktop view
+View
 
-![Desktop view](docs/snapshot3.png)
-
-Mobile view
-
-![Mobile view](docs/snapshot3b.png)
+![View](docs/snapshot3.png)
 
 ## Additional notes
 To get the first test running, you need to install and configure redis server
